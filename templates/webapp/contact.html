@@ -1,0 +1,51 @@
+{% extends 'webapp/base.html' %}
+
+{% load static %}
+
+{% block title %} User | Login {% endblock title %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div style="margin: auto;" class="col-sm-6">
+          <form action="" method="post" role="form">
+          <div class="text text-center alert alert-success my-4"><h3>Contact Me</h3></div>
+          <!-- Error message display -->
+          <div style="margin-top: 20px;" id="id_error_msg">
+            <ul>
+                {% for msg in messages %}
+                    <li>{{ msg }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+          {% csrf_token %}
+            <div class="form-group">
+              <label for="name">Name:</label><br>
+              {{ form.name }}
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email:</label><br>
+              {{ form.email }}
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject:</label><br>
+              {{ form.subject }}
+            </div>
+
+            <div class="form-group">
+              <label for="text">Leave a Message:</label><br>
+              {{ form.text }}
+            </div>
+
+            <input class="btn btn-primary btn-block" type="submit" value="Submit">
+
+        </form>
+      </div>
+    </div>
+
+
+{% endblock content %}

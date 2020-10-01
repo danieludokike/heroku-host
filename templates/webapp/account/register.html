@@ -1,0 +1,49 @@
+{% extends 'webapp/base.html' %}
+
+{% block title %} User | Registration {% endblock title %}
+
+
+{% block content %}
+
+ <div class="row">
+        <div style="margin: auto;" class="col-sm-6">
+          <form action="" method="post" role="form">
+          <p class="text text-muted text-center my-4"><svg width="4em" height="4em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+          </svg></p>
+        <div class="text-center alert alert-info"><h3>Sign Up</h3></div>
+              <br>
+
+              <div class="form-group">
+                {% for msg in messages %}
+                  <li class="alert alert-danger">{{ msg }}</li>
+                {% endfor %}
+              </div>
+        {% csrf_token %}
+          <div class="form-group">
+              <label for="username">Username:</label><br>
+              {{ form.username }}
+          </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label><br>
+              {{ form.email }}
+          </div>
+
+        <div class="form-group">
+                <label for="password">Password:</label><br>
+              {{ form.password }}
+          </div>
+
+        <div class="form-group">
+                <label for="password2">Confirm Password:</label><br>
+              {{ form.password2 }}
+          </div>
+          <div class="go-to"></div>
+          <p>Already have an account? <a class="link" href="{% url 'web_class:login' %}">Login Now!!</a></p>
+      <input class="submit-form-button btn btn-primary btn-block"  type="submit" value="Register">
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

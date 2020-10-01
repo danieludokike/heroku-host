@@ -1,0 +1,54 @@
+{% extends 'webapp/base.html' %}
+
+{% load static %}
+
+{% block title %} {{ user }} | Profile {% endblock title %}
+
+
+{% block content %}
+
+<!--The profile page -->
+  <div class="my-4">
+      <!-- About me and my profile pic -->
+      <div style="margin: auto;" class="col-sm-8">
+          {% if course %}
+               <div class="alert alert-info" style="height: 50px;">
+                  <strong>Search Result ...</strong>
+                   {% for field in course %}
+                       <div class="card text-center" style="margin-bottom: 20px;">
+                        <div class="card-header alert alert-info my-4">
+                          {{ field.course_name }}
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title">{{ field.course_title }}</h5>
+                          <p class="card-text">{{ field.course_description }}</p>
+                          <a href="{% url 'web_class:course_details' field.course_name %}" class="btn btn-primary">Start Now!!</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                          {{ field.pub_date }}
+                        </div>
+                      </div>
+
+               {% endfor %}
+          </div>
+
+          {% else %}
+          <div class="alert alert-danger" style="height: 50px;">
+                <strong>No Result Found ...</strong>
+              <div class="text my-4">
+                  <h3 >Hmm!!</h3>
+                  <div><h4>No result found for {{ course_name }}.</h4></div>
+                  <p class="text text-info">
+                      You can go back to select available courses
+                  </p>
+              </div>
+              <a class="btn btn-info" href="{% url 'web_class:profile' %}">Go Back</a>
+          </div>
+
+          {% endif %}
+      </div>
+  </div>
+
+
+
+{% endblock content %}

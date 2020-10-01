@@ -1,0 +1,174 @@
+{% extends 'webapp/base.html' %}
+
+{% load static %}
+
+{% block title %} {{ user }} | Profile {% endblock title %}
+
+
+{% block content %}
+
+    <!--The profile page -->
+      <div class="row">
+          <!-- About me and my profile pic -->
+          <div style="margin: auto;" class="col-sm-10">
+          <div class="alert alert-info my-4">
+              <strong>{{ course.title }}</strong>
+          </div>
+              <!-- Tutorials course view  -->
+          <!-- Checking for course type HTML and service to render -->
+          {% if course.title == 'HTML' %}
+            <div  style="background-color: #ddd;" id="tutorials-course">
+                <div class="course-section">
+                    <div class="course-text">
+                        <div><p>{{ course.course_details }}</p></div>
+                        <h4>A Simple HTML Document</h4>
+                        <hr>
+                        <div class="col-md-6">
+                        <textarea style=" font-weight: bold; background-color:#d4edda; font-size: 20px;" name="html_tags" id="html_tage" cols="10" rows="8">
+                              Example
+                            <!DOCTYPE html>
+                            <html>
+                            <head>
+                            <title>Page Title</title>
+                            </head>
+                            <body>
+
+                            <h1>My First Heading</h1>
+                            <p>My first paragraph.</p>
+
+                            </body>
+                            </html>
+
+                            Example Explained
+
+                                The <!DOCTYPE html> declaration defines that this document is an HTML5 document
+                                The <html> element is the root element of an HTML page
+                                The <head> element contains meta information about the HTML page
+                                The <title> element specifies a title for the HTML page (which is shown in the browser's title bar or in the page's tab)
+                                The <body> element defines the document's body, and is a container for all the visible contents, such as headings, paragraphs, images, hyperlinks, tables, lists, etc.
+                                The <h1> element defines a large heading
+                                The <p> element defines a paragraph
+
+                            What is an HTML Element?
+
+                            An HTML element is defined by a start tag, some content, and an end tag:
+                            <tagname>Content goes here...</tagname>
+
+                            The HTML element is everything from the start tag to the end tag:
+                            <h1>My First Heading</h1>
+                            <p>My first paragraph.</p>
+                            Start tag 	Element content 	End tag
+                            <h1> 	My First Heading 	</h1>
+                            <p> 	My first paragraph. 	</p>
+                            <br> 	none 	none
+                        </textarea>
+                    </div>
+                        <p class="description">
+                            Note: w3 Schools is standardized for web design and web development. you will be redirected to their official web site.
+                        </p>
+                        <a class="btn btn-success" href="https://www.w3schools.com/html/default.asp" target="_blank">Start Now</a>
+                    </div>
+                </div>
+            </div>
+
+          <!-- Condition checks for CSS courses display -->
+          {% elif course.title == 'CSS' %}
+            <div  style="background-color: #ddd;" id="tutorials-course">
+                <div class="course-section">
+                    <div class="course-text">
+                        <div><p>{{ course.course_details }}</p></div>
+                        <h4>Examples in Each Chapter</h4>
+                        <hr>
+                        CSS Syntax
+
+                            A CSS rule-set consists of a selector and a declaration block:
+
+                            CSS selector
+
+                            The selector points to the HTML element you want to style.
+
+                            The declaration block contains one or more declarations separated by semicolons.
+
+                            Each declaration includes a CSS property name and a value, separated by a colon.
+
+                            Multiple CSS declarations are separated with semicolons, and declaration blocks are surrounded by curly braces.
+                        <div class="col-sm-6">
+                         <textarea style="width: 100%; font-weight: bold; background-color:#d4edda; font-size: 20px;" name="html_tags" id="html_tage" cols="100" rows="10">
+
+                            body {
+                              background-color: lightblue;
+                            }
+
+                            h1 {
+                              color: white;
+                              text-align: center;
+                            }
+
+                            p {
+                              font-family: verdana;
+                              font-size: 20px;
+                            }
+                        </textarea>
+                        </div>
+
+                        <p class="description">
+                            Note: w3 Schools is standardized for web design. you will be redirected to their official web site.
+                        </p>
+                        <a class="btn btn-success" href="https://www.w3schools.com/css/default.asp" target="_blank">Start Now</a>
+                    </div>
+                </div>
+            </div>
+          <!-- Condition checks -->
+
+          <!-- Condition checks for Javascript courses display -->
+          {% elif course.title == 'JS' %}
+            <div  style="background-color: #ddd;" id="tutorials-course">
+                <div class="course-section">
+                    <div class="course-text">
+                        <div><p>{{ course.course_details }}</p></div>
+                        <hr>
+                        <br>
+                        <p>document.getElementById("demo").innerHTML = "Hello JavaScript";</p>
+                        <nav>Click the button below to start learning from w3org</nav>
+                        <p class="description">
+                            Note: w3 Schools is standardized for web design. you will be redirected to their official web site.
+                        </p>
+                        <a class="btn btn-success" href="https://www.w3schools.com/js/default.asp" target="_blank">Start Now</a>
+                    </div>
+                </div>
+            </div>
+          <!-- Condition checks -->
+
+          <!-- Condition checks for Python courses display -->
+          {% elif course.title == 'JS' %}
+            <div  style="background-color: #ddd;" id="tutorials-course">
+                <div class="course-section">
+                    <div class="course-text">
+                        <div><p>{{ course.course_details }}</p></div>
+                        <p class="description">
+                            Note: w3 Schools is standardized for web design. you will be redirected to their official web site.
+                        </p>
+                        <a class="btn btn-success" href="https://www.w3schools.com/js/default.asp" target="_blank">Start Now</a>
+                    </div>
+                </div>
+            </div>
+          <!-- Condition checks -->
+
+          {% else %}
+            <div  style="background-color: #ddd;" id="tutorials-course">
+                <div class="course-section">
+                    <div class="course-text">
+                        <div><p>{{ course.course_details }}</p></div>
+                        <p class="description">
+                            Note: w3 Schools is standardized for web design. you will be redirected to their official web site.
+                        </p>
+                        <a class="btn btn-success" href="https://www.w3schools.com/python/default.asp" target="_blank">Start Now</a>
+                    </div>
+                </div>
+            </div>
+          {% endif %}
+      </div>
+      </div>
+
+{% endblock content %}
+

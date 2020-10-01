@@ -1,0 +1,25 @@
+{% extends "webapp/base.html" %}
+
+
+{% block title %} Login | Required {% endblock title %}
+
+
+{% block content %}
+
+        <div class="my-4">
+            <ul>
+            {% for msg in messages %}
+                <li  class="alert alert-success"> {{ msg }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+
+        <div>
+            <p>
+                <strong>Click <a href="{% url 'web_class:login' %}">here&gt&gt </a> to login again</strong>
+            </p>
+        </div>
+
+
+
+{% endblock content %}

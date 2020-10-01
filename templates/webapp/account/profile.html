@@ -1,0 +1,70 @@
+{% extends 'webapp/base.html' %}
+
+{% load static %}
+
+{% block title %} {{ user }} | Profile {% endblock title %}
+
+
+{% block content %}
+
+<!--The profile page -->
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Hello {{ request.user }}</strong> You have logged in successfully!!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div  class="profile-detail">
+    <!-- About me and my profile pic -->
+    <div class="text text-center my-4 bg-info" style="height: 50px;">
+        <strong style="margin-top: 10px;">Take a Course!! </strong>
+    </div>
+
+
+    <form class="" action="{% url 'web_class:tutorial-search' %}" method="post" role="form" style="width: 100%;">
+        {% csrf_token %}
+        <input class="form-control mb-2 mr-sm-2" id="inlineFomrInputName" type="text" placeholder = "Search for courses"  name="search" id="id_search" />
+        <input class="btn btn-primary mb-2"  type="submit" value="Search" />
+    </form>
+
+
+    <!-- Field search Error display -->
+    <div>
+        <ul>
+            {% for msg in messages %}
+            <li class="alert alert-danger">{{ msg }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+    <!-- Tutorials section of the page -->
+     <!-- Tutorials section of the page -->
+ <div class="row my-0">
+     {% for course in available_courses %}
+         <div class="col-md-6">
+            <!-- <div class="inner-text">
+                <h3 class="center-text">{{ course.course_name }}</h3><hr />
+                <div><h4>{{ course.course_title }}</h4></div>
+                <p class="description">
+                    {{ course.course_description }}
+                </p>
+                <a href="{% url 'web_class:login' %}"><button>Start Now</button></a>
+            </div> -->
+            <div class="card text-center" style="margin-bottom: 20px;">
+                <div class="card-header alert alert-info">
+                  {{ course.course_name }}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{ course.course_title }}</h5>
+                  <p class="card-text">{{ course.course_description }}</p>
+                  <a href="{% url 'web_class:course_details' course.course_name %}" class="btn btn-primary">Start Now!!</a>
+                </div>
+                <div class="card-footer text-muted">
+                  {{ course.pub_date }}
+                </div>
+              </div>
+         </div>
+     {% endfor %}
+ </div>
+{% endblock content %}

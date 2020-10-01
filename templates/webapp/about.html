@@ -1,0 +1,130 @@
+{% extends 'webapp/base.html' %}
+
+{% load static %}
+
+{% block title %} About Me {% endblock title %}
+
+{% block content %}
+
+    <div class="row my-4">
+        <div style="margin: auto;" class="col-md-12">
+            <div class="header alert alert-success text text-center">
+                <strong>About Me:</strong>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin: auto" class="row my-6">
+        <div style="max-width: 100%;" class="col-md-6">
+            <img style="max-width: 100%;" src="{% static 'webapp/images/dan.jpg' %}" alt="Daniel Udokike">
+        </div>
+        <div class="col-md-6">
+            <table class="table ">
+                <tr>
+                    <td>Name:</td>
+                    <td>Daniel Udokike</td>
+                </tr>
+
+                <tr>
+                    <td>DOB</td>
+                    <td>30th March, 2000</td>
+                </tr>
+
+                <tr>
+                    <td>Address:</td>
+                    <td>Anambra, Nigeria</td>
+                </tr>
+
+                 <tr>
+                    <td>Profile:</td>
+                    <td>Web Developer</td>
+                </tr>
+                 <tr>
+                    <td>Email:</td>
+                     <td>
+                         <a href="mailto:danieludokike@gmail.com">danieludokike@gmail.com</a>
+                     </td>
+                </tr>
+
+                <tr>
+                    <td>Website</td>
+                    <td>
+                        <a href="#">http://www.danieludokike.com</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Tel:</td>
+                    <td>
+                        <a href="tel://+2349071790126">09071790126</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Hobby:</td>
+                    <td>Coding</td>
+                </tr>
+
+                <tr>
+                    <td>...</td>
+                    <td>Chess Player</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="row my-4">
+        <div class="col-md-12">
+          <div class="header text text-center alert alert-success">
+            <strong>Experiences:</strong>
+          </div>
+            <div class="text">
+                <label for="class_progress-bar">HTML:</label>
+                <div class="progress">
+                    <div style="width: 70%;" class="progress-bar progress-bar-success progress-bar-striped active bg-success">
+                        70%
+                    </div>
+                </div>
+            </div>
+
+            <div class="text">
+                <label for="class_progress-bar">CSS:</label>
+                <div class="progress">
+                    <div style="width: 50%;" class="progress-bar progress-bar-info progress-bar-striped active bg-info">
+                        50%
+                    </div>
+                </div>
+            </div>
+
+            <div class="text">
+                <label for="class_progress-bar">Js:</label>
+                <div class="progress">
+                    <div style="width: 30%;" class="progress-bar progress-bar-warning progress-bar-striped active bg-warning">
+                        30%
+                    </div>
+                </div>
+            </div>
+
+            <div class="text">
+                <label for="class_progress-bar">SQL:</label>
+                <div class="progress">
+                    <div style="width: 2%;" class="progress-bar progress-bar-danger progress-bar-striped active bg-danger">
+                        2%
+                    </div>
+                </div>
+            </div>
+
+            <div class="text">
+                <label for="class_progress-bar">Python:</label>
+                <div class="progress">
+                    <div style="width: 75%;" class="progress-bar progress-bar-success progress-bar-striped active bg-success">
+                        75%
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text text-center my-4">
+        <a style="width: 200px;" class="btn btn-success" href="{% url 'web_class:contact' %}">Hire Me</a>
+    </div>
+{% endblock content %}

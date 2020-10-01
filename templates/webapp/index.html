@@ -1,0 +1,61 @@
+{% extends 'webapp/base.html' %}
+
+{% load static %}
+
+{% block title %} Home {% endblock title %}
+
+
+{% block content %}
+
+<!-- Welcome text of the home page -->
+ <!-- <div style="background-image: url({% static 'web_class/images/welc-bg.jpg' %}); " id="welcome-text">
+    <div  class="text-center">
+        <h1>Welcome to Code Class Learning Platform</h1>
+        <span>We are Passionate about Technology</span>
+        <a href="{% url 'web_class:login' %}"><button>GET STARTED</button></a>
+    </div>
+ </div> -->
+
+ <div class="jumbotron text text-center my-4" style="background-image: url({% static 'webapp/images/welc-bg.jpg' %}); background-position: fixed; background-repeat: no-repeat;">
+    <h1 class="display-4" style="color: gold;">Hello, Programmer!</h1>
+    <p class="lead " style="color: #fff;">Welcome to my Online Class</p>
+    <hr class="my-4">
+    <p class="text text-muted">Making it Simple, Fancy, Accessible... And making sure the Fancy doesn't brake Accessiblity</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'web_class:login' %}" role="button">Learn more</a>
+  </div>
+
+ <!-- Tutorials section of the page -->
+ <div class="row my-0">
+     {% for course in available_courses %}
+         <div class="col-md-6">
+            <!-- <div class="inner-text">
+                <h3 class="center-text">{{ course.course_name }}</h3><hr />
+                <div><h4>{{ course.course_title }}</h4></div>
+                <p class="description">
+                    {{ course.course_description }}
+                </p>
+                <a href="{% url 'web_class:login' %}"><button>Start Now</button></a>
+            </div> -->
+            <div class="card text-center" style="margin-bottom: 20px;">
+                <div class="card-header alert alert-info">
+                  {{ course.course_name }}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{ course.course_title }}</h5>
+                  <p class="card-text">{{ course.course_description }}</p>
+                  <a href="{% url 'web_class:login' %}" class="btn btn-primary">Start Now!!</a>
+                </div>
+                <div class="card-footer text-muted">
+                  {{ course.pub_date }}
+                </div>
+              </div>
+         </div>
+     {% endfor %}
+ </div>
+
+{% endblock content %}
+
+
+{% block footer %}
+    {% include 'webapp/partials/_footer.html' %}
+{% endblock footer %}
