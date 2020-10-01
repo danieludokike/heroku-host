@@ -14,9 +14,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'cn@p+3qi!$j!$!s*l-v3g#(-foiy7-_hz#-$ni(^+aor3pm7+!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['daniel-webtuto.herokuapp.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = []
 
 
 # Application definition
